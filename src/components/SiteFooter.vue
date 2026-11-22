@@ -13,8 +13,7 @@ const year = new Date().getFullYear()
         <span>{{ site.name }}</span>
       </div>
       <p class="note">
-        Proof of concept complete; the SignerScope device is in development. See the limits for
-        what a green result does and does not cover.
+        Proof of concept complete; the SignerScope device is in development.
       </p>
       <div class="links">
         <RouterLink to="/about">About</RouterLink>

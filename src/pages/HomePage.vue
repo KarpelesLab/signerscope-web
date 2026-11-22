@@ -35,21 +35,6 @@ const results = [
   { label: 'Re-seat and repeat', value: '8 / 8 · 0 / 10', note: 'tampered pairs confirmed · genuine pairs flagged', bad: false },
 ]
 
-const misses = [
-  {
-    title: 'Coverage still growing',
-    body: 'The proof of concept targets the implants found so far. Until every antenna type is covered, a green result does not rule out every possible implant.',
-  },
-  {
-    title: 'Implants that adapt',
-    body: 'Implant makers will try to work around any detector. The firmware takes signed updates, so detection evolves as implants do, and the sweep hardware already covers 35 MHz to 4.4 GHz.',
-  },
-  {
-    title: 'Profile library still to build',
-    body: 'Antenna detection works with any device. Exact-match checks need a measured profile for each genuine wallet model; the proof of concept used a Nano X, and the library will grow from there.',
-  },
-]
-
 const timeline = [
   { tag: 'rev 0.1', state: 'explored', title: 'Capacitive array + RF loop', body: 'A handheld with eight capacitive electrodes and a near-field loop for a NanoVNA. Set aside in favour of RF.' },
   { tag: 'sim', state: 'done', title: 'Electrostatic & FDTD simulations', body: 'Floating copper behind the battery is invisible capacitively, but RF shows a narrow in-band absorption that plain copper does not.' },
@@ -166,8 +151,9 @@ const timeline = [
       <p class="eyebrow">The goal</p>
       <h2>Catch every implant. Confirm every genuine wallet.</h2>
       <p class="lede">
-        Two checks, one verdict. To pass, an implant would have to hide its antenna and leave the
-        wallet’s entire RF profile unchanged.
+        Detect every known implant, and confirm that a genuine wallet is exactly what it claims to
+        be. To pass, an implant would have to hide its antenna and leave the wallet’s entire RF
+        profile unchanged.
       </p>
       <ol class="layers">
         <li>
@@ -187,26 +173,15 @@ const timeline = [
             unknown.
           </p>
         </li>
-      </ol>
-    </div>
-  </section>
-
-  <section id="limits" class="section">
-    <div class="wrap split">
-      <div>
-        <p class="eyebrow">Limits</p>
-        <h2>Known limits.</h2>
-        <p class="lede small">
-          A detector that overclaims is worse than none. Here is what it can’t see yet, and how
-          it keeps up.
-        </p>
-      </div>
-      <ul class="misses">
-        <li v-for="m in misses" :key="m.title">
-          <h3>{{ m.title }}</h3>
-          <p>{{ m.body }}</p>
+        <li>
+          <span class="n mono">Always</span>
+          <h3>Stay up to date</h3>
+          <p>
+            The firmware takes signed updates, so detection keeps pace as new implants appear, and
+            the sweep hardware already covers 35 MHz to 4.4 GHz.
+          </p>
         </li>
-      </ul>
+      </ol>
     </div>
   </section>
 
@@ -549,29 +524,6 @@ h3 {
   color: var(--text-dim);
   font-size: 16px;
   margin-top: 10px;
-}
-
-/* Misses */
-.misses {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 12px;
-}
-
-.misses li {
-  border: 1px solid var(--line);
-  border-left: 3px solid var(--alert);
-  border-radius: var(--radius);
-  padding: 20px 22px;
-  background: var(--bg-raised);
-}
-
-.misses p {
-  color: var(--text-dim);
-  margin-top: 6px;
-  font-size: 16px;
 }
 
 /* Hardware */
