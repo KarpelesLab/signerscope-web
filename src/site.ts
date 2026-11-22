@@ -50,8 +50,9 @@ export const explainer = {
     { lang: 'ko', label: '한국어', title: '하드웨어 지갑 속의 스파이', duration: 'PT2M5S' },
   ].map((v) => ({
     ...v,
-    src: `/video/implant-explainer.${v.lang}.mp4`,
-    poster: `/video/poster.${v.lang}.webp`,
+    // Bump ?v= after re-encoding so the Cloudflare cache picks up the new files.
+    src: `/video/implant-explainer.${v.lang}.mp4?v=1`,
+    poster: `/video/poster.${v.lang}.webp?v=1`,
   })) as ExplainerVideo[],
 }
 
