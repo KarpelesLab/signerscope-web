@@ -41,8 +41,8 @@ const misses = [
     body: 'A hand-wound ~6 mm spiral is too small to couple to the cell’s uniform field and is not seen in simulation. A green result does not rule this type out.',
   },
   {
-    title: 'Implants designed to dodge the rule',
-    body: 'A deliberately low-Q antenna, or one resonating outside the search band.',
+    title: 'Implants that adapt',
+    body: 'An implant could try to slip past the rule, with a low-Q antenna or a resonance outside today’s search band. The firmware takes signed updates, so detection evolves as implants do, and the sweep hardware already covers 35 MHz to 4.4 GHz.',
   },
   {
     title: 'Thresholds still being tuned',
@@ -164,9 +164,10 @@ const timeline = [
     <div class="wrap split">
       <div>
         <p class="eyebrow">Limits</p>
-        <h2>What it will miss.</h2>
+        <h2>Known limits.</h2>
         <p class="lede small">
-          A detector that overclaims is worse than none. These are the known gaps.
+          A detector that overclaims is worse than none. Here is what it can’t see yet, and how
+          it keeps up.
         </p>
       </div>
       <ul class="misses">
