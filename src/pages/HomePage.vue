@@ -37,12 +37,12 @@ const results = [
 
 const misses = [
   {
-    title: 'Compact coil antennas',
-    body: 'A hand-wound ~6 mm spiral is too small to couple to today’s cell field and is not seen in simulation, so a green result does not rule it out yet. Covering every antenna type is the goal.',
+    title: 'Coverage still growing',
+    body: 'The proof of concept targets the implants found so far. Until every antenna type is covered, a green result does not rule out every possible implant.',
   },
   {
     title: 'Implants that adapt',
-    body: 'An implant could try to slip past the rule, with a low-Q antenna or a resonance outside today’s search band. The firmware takes signed updates, so detection evolves as implants do, and the sweep hardware already covers 35 MHz to 4.4 GHz.',
+    body: 'Implant makers will try to work around any detector. The firmware takes signed updates, so detection evolves as implants do, and the sweep hardware already covers 35 MHz to 4.4 GHz.',
   },
   {
     title: 'Profile library still to build',
@@ -175,8 +175,7 @@ const timeline = [
           <h3>Detect any antenna</h3>
           <p>
             Look for antenna signatures in any device, with no reference needed. The aim is to
-            cover every antenna type, from LTE meanders to compact coils, across every band an
-            implant could use.
+            cover every antenna type, across every band an implant could use.
           </p>
         </li>
         <li>
