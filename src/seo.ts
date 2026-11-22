@@ -1,5 +1,5 @@
 import type { RouteLocationNormalizedLoaded } from 'vue-router'
-import { pageTitle, site } from './site'
+import { pageTitle, site, sponsors } from './site'
 
 const esc = (s: string) =>
   s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
@@ -11,6 +11,7 @@ function jsonLd() {
     name: site.name,
     url: `${site.url}/`,
     logo: `${site.url}/icon-512.png`,
+    sponsor: sponsors.map((s) => ({ '@type': 'Organization', name: s.name, url: s.url })),
   }
   const data = {
     '@context': 'https://schema.org',

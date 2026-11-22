@@ -14,6 +14,7 @@ import BrandMark from './BrandMark.vue'
         <RouterLink :to="{ path: '/', hash: '#how' }">How it works</RouterLink>
         <RouterLink :to="{ path: '/', hash: '#results' }">Results</RouterLink>
         <RouterLink :to="{ path: '/', hash: '#status' }">Status</RouterLink>
+        <RouterLink :to="{ path: '/', hash: '#sponsors' }">Sponsors</RouterLink>
       </nav>
     </div>
   </header>

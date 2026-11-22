@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { site, sponsors } from '@/site'
 import SweepChart from '@/components/SweepChart.vue'
 
 const steps = [
@@ -220,6 +221,35 @@ const timeline = [
           </div>
         </li>
       </ol>
+    </div>
+  </section>
+
+  <section id="sponsors" class="section">
+    <div class="wrap">
+      <p class="eyebrow">Sponsors</p>
+      <h2>Backed by people who care about what’s inside the box.</h2>
+      <p class="lede">
+        Turning a proof of concept into a device anyone can buy costs real money: prototype runs, RF
+        test equipment, and certification for the EU and US markets. Our sponsors make that
+        possible.
+      </p>
+      <ul class="sponsors">
+        <li v-for="s in sponsors" :key="s.name">
+          <a :href="s.url" target="_blank" rel="sponsored noopener" :aria-label="s.name">
+            <picture>
+              <source :srcset="s.logoDark" media="(prefers-color-scheme: dark)" />
+              <img :src="s.logoLight" :alt="s.name" width="640" height="288" loading="lazy" />
+            </picture>
+          </a>
+          <span v-if="s.note" class="sponsor-note mono">{{ s.note }}</span>
+        </li>
+        <li class="become">
+          <a :href="site.sponsorUrl" target="_blank" rel="noopener">
+            <span class="plus" aria-hidden="true">+</span>
+            <span>Become a sponsor</span>
+          </a>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -596,6 +626,74 @@ h3 {
     grid-template-columns: 1fr;
     gap: 6px;
   }
+}
+
+/* Sponsors */
+.sponsors {
+  list-style: none;
+  margin: 40px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.sponsors li {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg-raised);
+  aspect-ratio: 16 / 8;
+  transition: border-color 0.15s;
+}
+
+.sponsors li:hover {
+  border-color: var(--signal-dim);
+}
+
+.sponsors a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 8px 24px;
+  text-decoration: none;
+}
+
+.sponsors img {
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+}
+
+.sponsor-note {
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--signal);
+}
+
+.sponsors .become {
+  border-style: dashed;
+  background: transparent;
+}
+
+.become a {
+  flex-direction: column;
+  gap: 6px;
+  color: var(--text-dim);
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.become .plus {
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--signal);
 }
 
 /* Join */
