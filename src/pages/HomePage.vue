@@ -38,15 +38,15 @@ const results = [
 const misses = [
   {
     title: 'Compact coil antennas',
-    body: 'A hand-wound ~6 mm spiral is too small to couple to the cell’s uniform field and is not seen in simulation. A green result does not rule this type out.',
+    body: 'A hand-wound ~6 mm spiral is too small to couple to today’s cell field and is not seen in simulation, so a green result does not rule it out yet. Covering every antenna type is the goal.',
   },
   {
     title: 'Implants that adapt',
     body: 'An implant could try to slip past the rule, with a low-Q antenna or a resonance outside today’s search band. The firmware takes signed updates, so detection evolves as implants do, and the sweep hardware already covers 35 MHz to 4.4 GHz.',
   },
   {
-    title: 'Thresholds still being tuned',
-    body: 'SignerScope looks for a tuned LTE antenna, not a particular product, so it works with any device. The proof of concept used a Nano X; the thresholds will be refined on many more devices.',
+    title: 'Profile library still to build',
+    body: 'Antenna detection works with any device. Exact-match checks need a measured profile for each genuine wallet model; the proof of concept used a Nano X, and the library will grow from there.',
   },
 ]
 
@@ -58,6 +58,7 @@ const timeline = [
   { tag: 'rev 0.2', state: 'built', title: 'Integrated TEM cell', body: 'The NanoVNA replaced by an on-board sweep: five boards built, with the synthesizer, detector, ADC, display and USB all working.' },
   { tag: 'rev 0.3', state: 'next', title: 'RF layout refinements', body: 'A cleaner RF layout for a flat sweep across the whole band, so the detection rule runs on the device itself.' },
   { tag: 'firmware', state: 'next', title: 'Detector firmware', body: 'Self-check, the detection rule, green/red verdict, signed updates and a HID interface for data collection.' },
+  { tag: 'goal', state: 'next', title: 'Every antenna, every profile', body: 'Detection of all antenna types, and a library of measured genuine wallet profiles so a device can be confirmed as an exact match or flagged as unknown.' },
 ]
 </script>
 
@@ -123,7 +124,7 @@ const timeline = [
         <div class="rule-head">
           <p class="eyebrow">The detection rule</p>
           <p class="rule-note">
-            No per-model reference wallet needed, if it holds up on more units.
+            Needs no reference wallet. Known-wallet profiles add a second check.
           </p>
         </div>
         <dl>
@@ -157,6 +158,37 @@ const timeline = [
         0.05 dB of noise per point. The device will be characterised on many more units before
         release.
       </p>
+    </div>
+  </section>
+
+  <section id="goal" class="section">
+    <div class="wrap">
+      <p class="eyebrow">The goal</p>
+      <h2>Catch every implant. Confirm every genuine wallet.</h2>
+      <p class="lede">
+        Two checks, one verdict. To pass, an implant would have to hide its antenna and leave the
+        wallet’s entire RF profile unchanged.
+      </p>
+      <ol class="layers">
+        <li>
+          <span class="n mono">Layer 1</span>
+          <h3>Detect any antenna</h3>
+          <p>
+            Look for antenna signatures in any device, with no reference needed. The aim is to
+            cover every antenna type, from LTE meanders to compact coils, across every band an
+            implant could use.
+          </p>
+        </li>
+        <li>
+          <span class="n mono">Layer 2</span>
+          <h3>Match the known profile</h3>
+          <p>
+            Compare the whole sweep against a library of measured genuine wallets. An exact match
+            confirms the device is what it claims to be; anything that doesn’t match is flagged as
+            unknown.
+          </p>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -483,6 +515,39 @@ h3 {
   max-width: 70ch;
   border-left: 2px solid var(--warn);
   padding-left: 14px;
+}
+
+/* Goal */
+.layers {
+  list-style: none;
+  padding: 0;
+  margin: 40px 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.layers li {
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--signal);
+  border-radius: var(--radius);
+  background: var(--bg-raised);
+  padding: 28px;
+}
+
+.layers .n {
+  display: block;
+  color: var(--signal);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.layers p {
+  color: var(--text-dim);
+  font-size: 16px;
+  margin-top: 10px;
 }
 
 /* Misses */

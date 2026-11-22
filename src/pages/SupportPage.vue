@@ -12,7 +12,7 @@ const costs = [
   },
   {
     title: 'Test devices',
-    body: 'Genuine and tampered devices of many kinds, to refine the detection thresholds beyond the proof of concept.',
+    body: 'Genuine and tampered devices of many kinds, to build the library of known wallet profiles and refine detection.',
   },
   {
     title: 'Certification',
