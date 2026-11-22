@@ -12,6 +12,8 @@ const siteUrl = 'https://signerscope.com'
 // Indexable pages go in the sitemap; 404.html is GitHub Pages' fallback for unknown paths.
 const pages = [
   { url: '/', file: 'index.html', sitemap: true },
+  // GitHub Pages serves support.html at /support (no trailing-slash redirect).
+  { url: '/support', file: 'support.html', sitemap: true },
   { url: '/404', file: '404.html', sitemap: false },
 ]
 

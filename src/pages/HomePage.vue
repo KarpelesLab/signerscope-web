@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { site, sponsors } from '@/site'
+import { sponsors } from '@/site'
 import SweepChart from '@/components/SweepChart.vue'
 import ExplainerVideo from '@/components/ExplainerVideo.vue'
 
@@ -228,7 +228,7 @@ const timeline = [
     </div>
   </section>
 
-  <section id="support" class="section">
+  <section id="backers" class="section">
     <div class="wrap">
       <p class="eyebrow">Sponsors</p>
       <h2>Implants are an ecosystem problem.</h2>
@@ -249,10 +249,10 @@ const timeline = [
           <span v-if="s.note" class="backer-note mono">{{ s.note }}</span>
         </li>
         <li class="become">
-          <a :href="site.sponsorUrl" target="_blank" rel="noopener">
+          <RouterLink to="/support">
             <span class="plus" aria-hidden="true">+</span>
             <span>Become a sponsor</span>
-          </a>
+          </RouterLink>
         </li>
       </ul>
       <p class="independence">

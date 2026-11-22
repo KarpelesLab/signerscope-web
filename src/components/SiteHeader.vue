@@ -14,7 +14,8 @@ import BrandMark from './BrandMark.vue'
         <RouterLink :to="{ path: '/', hash: '#how' }">How it works</RouterLink>
         <RouterLink :to="{ path: '/', hash: '#results' }">Results</RouterLink>
         <RouterLink :to="{ path: '/', hash: '#status' }">Status</RouterLink>
-        <RouterLink :to="{ path: '/', hash: '#support' }">Sponsors</RouterLink>
+        <RouterLink :to="{ path: '/', hash: '#backers' }">Sponsors</RouterLink>
+        <RouterLink to="/support" class="cta">Support us</RouterLink>
       </nav>
     </div>
   </header>
@@ -65,8 +66,13 @@ nav a:hover {
   color: var(--text);
 }
 
-@media (max-width: 480px) {
-  nav a:not(:first-child) {
+nav .cta {
+  color: var(--signal);
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  nav a:not(:first-child):not(.cta) {
     display: none;
   }
 }

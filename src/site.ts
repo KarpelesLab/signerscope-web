@@ -7,6 +7,11 @@ export const site = {
     'SignerScope is an open-hardware RF detector that finds hidden cellular spy implants in hardware wallets. A TEM cell sweep flags the absorption notch of an implanted LTE antenna.',
   ogImage: '/og.png',
   sponsorUrl: 'https://github.com/sponsors/KarpelesLab',
+  contacts: [
+    { label: 'X', handle: '@MagicalTux', url: 'https://x.com/MagicalTux', note: 'Direct message' },
+    { label: 'Telegram', handle: '@mkarpeles', url: 'https://t.me/mkarpeles', note: 'Message' },
+    { label: 'Email', handle: 'mark@klb.jp', url: 'mailto:mark@klb.jp?subject=SignerScope', note: 'Write' },
+  ],
   themeColor: '#0c1110',
 } as const
 

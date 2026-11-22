@@ -14,6 +14,7 @@ import BrandMark from './BrandMark.vue'
         Proof of concept complete; the SignerScope device is in development. See the limits for
         what a green result does and does not cover.
       </p>
+      <RouterLink to="/support" class="support">Support the project →</RouterLink>
     </div>
   </footer>
 </template>
@@ -44,5 +45,11 @@ import BrandMark from './BrandMark.vue'
 
 .note {
   max-width: 46ch;
+}
+
+.support {
+  color: var(--signal);
+  font-weight: 600;
+  text-decoration: none;
 }
 </style>

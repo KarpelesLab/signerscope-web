@@ -1,6 +1,7 @@
 import { createRouter, type RouterHistory, type RouteRecordRaw } from 'vue-router'
 import HomePage from '@/pages/HomePage.vue'
 import NotFoundPage from '@/pages/NotFoundPage.vue'
+import SupportPage from '@/pages/SupportPage.vue'
 
 declare module 'vue-router' {
   interface RouteMeta {
@@ -12,6 +13,16 @@ declare module 'vue-router' {
 
 export const routes: RouteRecordRaw[] = [
   { path: '/', name: 'home', component: HomePage },
+  {
+    path: '/support',
+    name: 'support',
+    component: SupportPage,
+    meta: {
+      title: 'Support the project',
+      description:
+        'Help bring SignerScope, a detector for spy implants in hardware wallets, from proof of concept to a certified device. Sponsor via GitHub, crypto or directly.',
+    },
+  },
   {
     path: '/:pathMatch(.*)*',
     name: 'not-found',
