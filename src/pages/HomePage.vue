@@ -268,8 +268,10 @@ const timeline = [
       <p class="lede">
         A supply-chain implant threatens every hardware wallet maker and every user, whatever the
         brand. Turning the proof of concept into a device anyone can buy costs real money:
-        prototype runs, RF test equipment, and certification for the EU and US markets. Our
-        sponsors make that possible, and we are looking for more.
+        prototype runs, RF test equipment, certification for the EU and US markets, and a
+        reference library of every wallet and signer on the market, in every hardware revision.
+        Our sponsors make that possible, and we are looking for more. Wallet makers are welcome to
+        <RouterLink to="/support#makers">send their devices</RouterLink>.
       </p>
       <ul class="backers">
         <li v-for="s in sponsors" :key="s.name">

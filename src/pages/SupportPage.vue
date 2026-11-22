@@ -11,8 +11,8 @@ const costs = [
     body: 'RF instruments to characterise the on-board sweep and check every unit against a known reference.',
   },
   {
-    title: 'Test devices',
-    body: 'Genuine and tampered devices of many kinds, to build the library of known wallet profiles and refine detection.',
+    title: 'Every wallet, every revision',
+    body: 'Confirming a genuine wallet needs its measured profile, so the library needs every wallet and signer on the market, in every hardware revision, plus tampered samples.',
   },
   {
     title: 'Certification',
@@ -44,7 +44,7 @@ const ways = [
   },
   {
     title: 'Devices',
-    body: 'Lend or donate genuine units, or anything you suspect has been tampered with. Every new device makes the detector better.',
+    body: 'Lend or donate genuine units of any wallet or signer, or anything you suspect has been tampered with. Every device added to the library makes the detector better.',
     href: '#contact',
     action: 'Offer a device',
     external: false,
@@ -102,12 +102,29 @@ const ways = [
     </div>
   </section>
 
+  <section id="makers" class="section">
+    <div class="wrap makers">
+      <div>
+        <p class="eyebrow">For wallet makers</p>
+        <h2>Send us your wallets.</h2>
+      </div>
+      <div class="prose">
+        <p>
+          SignerScope can only confirm that a device is genuine if it knows what a genuine unit looks
+          like. Send us every model and hardware revision you ship, and your customers will be able
+          to check that the device in their hands matches your design exactly.
+        </p>
+        <a href="#contact" class="btn primary">Arrange a shipment</a>
+      </div>
+    </div>
+  </section>
+
   <section id="contact" class="section">
     <div class="wrap">
       <p class="eyebrow">Contact</p>
       <h2>Talk to Mark directly.</h2>
       <p class="lede">
-        Questions, crypto addresses, company sponsorship or a device to test: reach out on whichever
+        Questions, crypto addresses, company sponsorship or devices to send: reach out on whichever
         channel you prefer.
       </p>
       <ul class="contacts">
@@ -201,6 +218,26 @@ h3 {
   font-weight: 600;
   font-size: 15px;
   text-decoration: none;
+}
+
+.makers {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(24px, 5vw, 72px);
+}
+
+.makers .prose {
+  display: grid;
+  gap: 18px;
+  justify-items: start;
+  color: var(--text-dim);
+  font-size: 18px;
+}
+
+@media (max-width: 800px) {
+  .makers {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 .contacts {
