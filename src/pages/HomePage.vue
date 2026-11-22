@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { site } from '@/site'
 import SweepChart from '@/components/SweepChart.vue'
 
 const steps = [
@@ -45,17 +44,17 @@ const misses = [
   },
   {
     title: 'Anything not yet measured',
-    body: 'Other wallet models and form factors have no captures yet. The rule rests on one genuine and one tampered unit.',
+    body: 'Other wallet models and form factors will be characterised as the device is built; the proof of concept used the Nano X.',
   },
 ]
 
 const timeline = [
-  { tag: 'rev 0.1', state: 'concept', title: 'Capacitive array + RF loop', body: 'Handheld with eight capacitive electrodes and a near-field loop for a NanoVNA. Not built.' },
+  { tag: 'rev 0.1', state: 'explored', title: 'Capacitive array + RF loop', body: 'A handheld with eight capacitive electrodes and a near-field loop for a NanoVNA. Set aside in favour of RF.' },
   { tag: 'sim', state: 'done', title: 'Electrostatic & FDTD simulations', body: 'Floating copper behind the battery is invisible capacitively, but RF shows a narrow in-band absorption that plain copper does not.' },
   { tag: '2026-10-18', state: 'done', title: 'First NanoVNA session', body: 'Resonance visible on a tampered unit, but only with the probe right over the antenna feed.' },
-  { tag: '2026-10-26', state: 'done', title: 'RF fixture kit', body: 'Slot line and open TEM cell. The TEM cell sees the tampered notch at every placement.' },
-  { tag: 'rev 0.2', state: 'built', title: 'Integrated TEM cell', body: 'Five boards built. Synthesizer, detector, ADC, display and USB all work; a ~12 dB notch near 1.4 GHz must be fixed before the rule can run.' },
-  { tag: 'rev 0.3', state: 'next', title: 'Layout fixes', body: 'RF support parts placed at their pins, short terminations. Generated, not yet built.' },
+  { tag: '2026-10-26', state: 'proof of concept', title: 'RF fixture kit', body: 'Slot line and open TEM cell. The TEM cell sees the tampered notch at every placement and in both orientations.' },
+  { tag: 'rev 0.2', state: 'built', title: 'Integrated TEM cell', body: 'The NanoVNA replaced by an on-board sweep: five boards built, with the synthesizer, detector, ADC, display and USB all working.' },
+  { tag: 'rev 0.3', state: 'next', title: 'RF layout refinements', body: 'A cleaner RF layout for a flat sweep across the whole band, so the detection rule runs on the device itself.' },
   { tag: 'firmware', state: 'next', title: 'Detector firmware', body: 'Self-check, the detection rule, green/red verdict, signed updates and a HID interface for data collection.' },
 ]
 </script>
@@ -64,16 +63,17 @@ const timeline = [
   <section class="hero">
     <div class="wrap hero-grid">
       <div class="hero-copy">
-        <p class="status"><span class="dot" />Prototype · not validated</p>
+        <p class="status"><span class="dot" />Proof of concept done · device in development</p>
         <h1>Find the antenna that shouldn’t be there.</h1>
         <p class="lede">
           SignerScope is an open-hardware bench tool that checks a hardware wallet for a hidden
-          cellular implant. Slide the device into its TEM cell, press one button, and it sweeps the
-          LTE bands for the narrow absorption notch a tuned implant antenna leaves behind.
+          cellular implant. Slide the wallet in, press one button, and read the answer: a green or red
+          light, with the details on screen. Under the hood, it sweeps the LTE bands for the narrow
+          absorption notch a tuned implant antenna leaves behind.
         </p>
         <div class="cta">
           <RouterLink :to="{ path: '/', hash: '#how' }" class="btn primary">How it works</RouterLink>
-          <a :href="site.repoUrl" class="btn" target="_blank" rel="noopener">Schematics &amp; firmware</a>
+          <RouterLink :to="{ path: '/', hash: '#results' }" class="btn">See the results</RouterLink>
         </div>
       </div>
       <SweepChart class="hero-chart" />
@@ -148,9 +148,9 @@ const timeline = [
         </div>
       </div>
       <p class="caveat">
-        The thresholds were chosen after looking at these captures. They set a hardware target
-        (≤ 0.05 dB of noise per point) rather than prove the rule. Validation needs many more
-        units.
+        These captures set the target for the device: a sweep from 800 to 1600 MHz with at most
+        0.05 dB of noise per point. The device will be characterised on many more units before
+        release.
       </p>
     </div>
   </section>
@@ -175,12 +175,17 @@ const timeline = [
 
   <section id="hardware" class="section">
     <div class="wrap">
-      <p class="eyebrow">Hardware</p>
-      <h2>One board is the cell floor and the electronics.</h2>
+      <p class="eyebrow">The device</p>
+      <h2>A simple box anyone can use.</h2>
+      <p class="lede">
+        One button to start. A green or red LED you can read from across the room. A small screen for
+        the details. Inside, a single board is both the floor of the TEM cell and all of the
+        electronics.
+      </p>
       <div class="boards">
         <figure>
           <img src="/img/integrated_top.webp" alt="Top of the rev 0.3 board: the TEM cell ground plane with an 80 by 80 mm test area, start button, green and red LEDs and the LCD footprint" width="1100" height="1100" loading="lazy" />
-          <figcaption>Top: the cell’s ground plane and test area</figcaption>
+          <figcaption>Top: test area, button, LEDs and screen (rev 0.3 board)</figcaption>
         </figure>
         <figure>
           <img src="/img/integrated_bottom.webp" alt="Underside of the rev 0.3 board with the RF synthesizer, log detector, ADC and Raspberry Pi Pico 2 module" width="1100" height="1100" loading="lazy" />
@@ -207,7 +212,7 @@ const timeline = [
       <p class="eyebrow">Status</p>
       <h2>Where the project stands.</h2>
       <ol class="timeline">
-        <li v-for="t in timeline" :key="t.tag" :class="t.state">
+        <li v-for="t in timeline" :key="t.tag" :class="t.state.replace(/ /g, '-')">
           <span class="tag mono">{{ t.tag }}</span>
           <div>
             <h3>{{ t.title }} <span class="state mono">{{ t.state }}</span></h3>
@@ -221,14 +226,12 @@ const timeline = [
   <section class="section join">
     <div class="wrap join-box">
       <div>
-        <h2>Open from schematic to firmware.</h2>
+        <h2>Open hardware, once the design is final.</h2>
         <p class="lede small">
-          Every board is generated from reviewable scripts, and the captures and notes are in the
-          repository. Measurements on more genuine and tampered devices are what the project needs
-          most.
+          Schematics, firmware, captures and test notes will be published once testing is complete
+          and the board design is frozen.
         </p>
       </div>
-      <a :href="site.repoUrl" class="btn primary" target="_blank" rel="noopener">View on GitHub</a>
     </div>
   </section>
 </template>
@@ -254,8 +257,8 @@ const timeline = [
   font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--warn);
-  border: 1px solid color-mix(in srgb, var(--warn) 35%, transparent);
+  color: var(--signal);
+  border: 1px solid color-mix(in srgb, var(--signal) 35%, transparent);
   border-radius: 99px;
   padding: 5px 12px;
   margin-bottom: 24px;
@@ -265,8 +268,8 @@ const timeline = [
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--warn);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--warn) 20%, transparent);
+  background: var(--signal);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--signal) 20%, transparent);
 }
 
 h1 {
@@ -575,6 +578,12 @@ h3 {
 .built .state {
   color: var(--signal);
   border-color: color-mix(in srgb, var(--signal) 40%, transparent);
+}
+
+.proof-of-concept .state {
+  color: #06120c;
+  background: var(--signal);
+  border-color: var(--signal);
 }
 
 .next .state {

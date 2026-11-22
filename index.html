@@ -3,21 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SignerScope — find the antenna that shouldn't be there</title>
-    <meta name="description" content="SignerScope is an open-hardware bench tool that sweeps a hardware wallet with RF and flags the absorption notch of a hidden cellular implant antenna." />
-    <meta name="theme-color" content="#0c1110" />
+    <!--app-head-->
+    <meta name="theme-color" content="#0c1110" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f4f6f4" media="(prefers-color-scheme: light)" />
+    <meta name="color-scheme" content="dark light" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="canonical" href="https://signerscope.com/" />
-    <meta property="og:title" content="SignerScope" />
-    <meta property="og:description" content="Open-hardware RF detector for implanted antennas in hardware wallets." />
-    <meta property="og:url" content="https://signerscope.com/" />
-    <meta property="og:type" content="website" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app"><!--app-html--></div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

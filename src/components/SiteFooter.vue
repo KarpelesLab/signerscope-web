@@ -11,13 +11,9 @@ import BrandMark from './BrandMark.vue'
         <span>{{ site.name }}</span>
       </div>
       <p class="note">
-        Open hardware research prototype. Not validated: a green result is not a guarantee that a
-        device is clean.
+        Proof of concept complete; the SignerScope device is in development. See the limits for
+        what a green result does and does not cover.
       </p>
-      <div class="links">
-        <a :href="site.repoUrl" target="_blank" rel="noopener">Hardware &amp; firmware</a>
-        <a :href="site.webRepoUrl" target="_blank" rel="noopener">Website source</a>
-      </div>
     </div>
   </footer>
 </template>
@@ -48,14 +44,5 @@ import BrandMark from './BrandMark.vue'
 
 .note {
   max-width: 46ch;
-}
-
-.links {
-  display: flex;
-  gap: 20px;
-}
-
-.links a {
-  color: var(--text-dim);
 }
 </style>

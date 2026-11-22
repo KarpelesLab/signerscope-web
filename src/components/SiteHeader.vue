@@ -14,7 +14,6 @@ import BrandMark from './BrandMark.vue'
         <RouterLink :to="{ path: '/', hash: '#how' }">How it works</RouterLink>
         <RouterLink :to="{ path: '/', hash: '#results' }">Results</RouterLink>
         <RouterLink :to="{ path: '/', hash: '#status' }">Status</RouterLink>
-        <a :href="site.repoUrl" class="gh" target="_blank" rel="noopener">GitHub</a>
       </nav>
     </div>
   </header>
@@ -65,12 +64,8 @@ nav a:hover {
   color: var(--text);
 }
 
-nav .gh {
-  color: var(--signal);
-}
-
-@media (max-width: 640px) {
-  nav a:not(.gh) {
+@media (max-width: 480px) {
+  nav a:not(:first-child) {
     display: none;
   }
 }

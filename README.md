@@ -1,8 +1,7 @@
 # signerscope-web
 
 Website for [SignerScope](https://signerscope.com), an open-hardware RF detector for implanted
-antennas in hardware wallets. The hardware and firmware live in
-[KarpelesLab/ledger_implant_detector](https://github.com/KarpelesLab/ledger_implant_detector).
+antennas in hardware wallets.
 
 Vue 3 + Vite + TypeScript, deployed to GitHub Pages.
 
