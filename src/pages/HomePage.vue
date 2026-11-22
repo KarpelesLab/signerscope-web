@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { site, sponsors } from '@/site'
 import SweepChart from '@/components/SweepChart.vue'
+import ExplainerVideo from '@/components/ExplainerVideo.vue'
 
 const steps = [
   {
@@ -100,6 +101,9 @@ const timeline = [
           resonance. SignerScope looks for that difference.
         </p>
       </div>
+    </div>
+    <div class="wrap">
+      <ExplainerVideo />
     </div>
   </section>
 

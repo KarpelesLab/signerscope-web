@@ -1,5 +1,5 @@
 import type { RouteLocationNormalizedLoaded } from 'vue-router'
-import { pageTitle, site, sponsors } from './site'
+import { explainer, pageTitle, site, sponsors } from './site'
 
 const esc = (s: string) =>
   s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
@@ -25,7 +25,19 @@ function jsonLd() {
         description: site.description,
         publisher: { '@id': `${site.url}/#org` },
         inLanguage: 'en',
-      }
+      },
+      ...explainer.videos.map((v) => ({
+        '@type': 'VideoObject',
+        name: v.title,
+        description:
+          'How a tampered hardware wallet with a hidden LTE modem can leak its recovery phrase, PIN and screens to an attacker.',
+        inLanguage: v.lang,
+        thumbnailUrl: site.url + v.poster,
+        contentUrl: site.url + v.src,
+        uploadDate: explainer.uploadDate,
+        duration: v.duration,
+        creator: { '@type': 'Organization', name: explainer.credit, url: 'https://www.tibane.net/' },
+      })),
     ],
   }
   return `<script type="application/ld+json">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`
