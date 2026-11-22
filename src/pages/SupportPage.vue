@@ -12,7 +12,7 @@ const costs = [
   },
   {
     title: 'Test devices',
-    body: 'Genuine and tampered wallets from several makers, so the detection rule holds beyond the proof of concept.',
+    body: 'Genuine and tampered devices of many kinds, to refine the detection thresholds beyond the proof of concept.',
   },
   {
     title: 'Certification',
@@ -136,7 +136,7 @@ const ways = [
         </li>
       </ul>
       <p class="independence">
-        Sponsors fund the work; they have no say in test results or in which devices we test.
+        Sponsors fund the work; they have no say in how SignerScope works or in what it reports.
         Sponsors who wish to be named are listed on this site.
       </p>
     </div>

@@ -45,8 +45,8 @@ const misses = [
     body: 'A deliberately low-Q antenna, or one resonating outside the search band.',
   },
   {
-    title: 'Anything not yet measured',
-    body: 'Other wallet models and form factors will be characterised as the device is built; the proof of concept used the Nano X.',
+    title: 'Thresholds still being tuned',
+    body: 'SignerScope looks for a tuned LTE antenna, not a particular product, so it works with any device. The proof of concept used a Nano X; the thresholds will be refined on many more devices.',
   },
 ]
 
@@ -256,7 +256,7 @@ const timeline = [
         </li>
       </ul>
       <p class="independence">
-        Sponsors fund the work; they have no say in test results or in which devices we test.
+        Sponsors fund the work; they have no say in how SignerScope works or in what it reports.
       </p>
     </div>
   </section>
