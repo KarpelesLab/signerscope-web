@@ -228,7 +228,7 @@ const timeline = [
     </div>
   </section>
 
-  <section id="sponsors" class="section">
+  <section id="support" class="section">
     <div class="wrap">
       <p class="eyebrow">Sponsors</p>
       <h2>Implants are an ecosystem problem.</h2>
@@ -238,15 +238,15 @@ const timeline = [
         prototype runs, RF test equipment, and certification for the EU and US markets. Our
         sponsors make that possible, and we are looking for more.
       </p>
-      <ul class="sponsors">
+      <ul class="backers">
         <li v-for="s in sponsors" :key="s.name">
-          <a :href="s.url" target="_blank" rel="sponsored noopener" :aria-label="s.name">
+          <a :href="s.url" target="_blank" rel="nofollow noopener" :aria-label="s.name">
             <picture>
               <source :srcset="s.logoDark" media="(prefers-color-scheme: dark)" />
               <img :src="s.logoLight" :alt="s.name" width="640" height="288" loading="lazy" />
             </picture>
           </a>
-          <span v-if="s.note" class="sponsor-note mono">{{ s.note }}</span>
+          <span v-if="s.note" class="backer-note mono">{{ s.note }}</span>
         </li>
         <li class="become">
           <a :href="site.sponsorUrl" target="_blank" rel="noopener">
@@ -636,8 +636,8 @@ h3 {
   }
 }
 
-/* Sponsors */
-.sponsors {
+/* Backers */
+.backers {
   list-style: none;
   margin: 40px 0 0;
   padding: 0;
@@ -646,7 +646,7 @@ h3 {
   gap: 16px;
 }
 
-.sponsors li {
+.backers li {
   position: relative;
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -655,11 +655,11 @@ h3 {
   transition: border-color 0.15s;
 }
 
-.sponsors li:hover {
+.backers li:hover {
   border-color: var(--signal-dim);
 }
 
-.sponsors a {
+.backers a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -668,13 +668,13 @@ h3 {
   text-decoration: none;
 }
 
-.sponsors img {
+.backers img {
   width: 100%;
   max-width: 240px;
   height: auto;
 }
 
-.sponsor-note {
+.backer-note {
   position: absolute;
   top: 12px;
   left: 14px;
@@ -684,7 +684,7 @@ h3 {
   color: var(--signal);
 }
 
-.sponsors .become {
+.backers .become {
   border-style: dashed;
   background: transparent;
 }

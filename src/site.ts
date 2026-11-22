@@ -23,8 +23,8 @@ export const sponsors: Sponsor[] = [
   {
     name: 'OneKey',
     url: 'https://onekey.so/',
-    logoLight: '/sponsors/onekey-black.svg',
-    logoDark: '/sponsors/onekey-white.svg',
+    logoLight: '/partners/onekey-black.svg?v=1',
+    logoDark: '/partners/onekey-white.svg?v=1',
     note: 'First sponsor',
   },
 ]
