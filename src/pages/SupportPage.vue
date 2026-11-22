@@ -1,24 +1,8 @@
 <script setup lang="ts">
-import { site, sponsors } from '@/site'
+import { fundingNeeds as costs, site } from '@/site'
+import ContactList from '@/components/ContactList.vue'
+import BackerLogos from '@/components/BackerLogos.vue'
 
-const costs = [
-  {
-    title: 'Prototype runs',
-    body: 'Board fabrication and assembly for each revision, plus the cell parts, until the design is final.',
-  },
-  {
-    title: 'Test equipment',
-    body: 'RF instruments to characterise the on-board sweep and check every unit against a known reference.',
-  },
-  {
-    title: 'Every wallet, every revision',
-    body: 'Confirming a genuine wallet needs its measured profile, so the library needs every wallet and signer on the market, in every hardware revision, plus tampered samples.',
-  },
-  {
-    title: 'Certification',
-    body: 'EMC and radio compliance testing for CE marking in the EU and FCC authorisation in the US, so the device can be sold.',
-  },
-]
 
 const ways = [
   {
@@ -127,31 +111,14 @@ const ways = [
         Questions, crypto addresses, company sponsorship or devices to send: reach out on whichever
         channel you prefer.
       </p>
-      <ul class="contacts">
-        <li v-for="c in site.contacts" :key="c.label">
-          <a :href="c.url" v-bind="c.url.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {}">
-            <span class="label mono">{{ c.label }}</span>
-            <span class="handle">{{ c.handle }}</span>
-            <span class="note">{{ c.note }} →</span>
-          </a>
-        </li>
-      </ul>
+      <ContactList />
     </div>
   </section>
 
   <section class="section">
     <div class="wrap">
       <p class="eyebrow">Current sponsors</p>
-      <ul class="logos">
-        <li v-for="s in sponsors" :key="s.name">
-          <a :href="s.url" target="_blank" rel="nofollow noopener" :aria-label="s.name">
-            <picture>
-              <source :srcset="s.logoDark" media="(prefers-color-scheme: dark)" />
-              <img :src="s.logoLight" :alt="s.name" width="640" height="288" loading="lazy" />
-            </picture>
-          </a>
-        </li>
-      </ul>
+      <BackerLogos />
       <p class="independence">
         Sponsors fund the work; they have no say in how SignerScope works or in what it reports.
         Sponsors who wish to be named are listed on this site.
@@ -238,70 +205,6 @@ h3 {
   .makers {
     grid-template-columns: minmax(0, 1fr);
   }
-}
-
-.contacts {
-  list-style: none;
-  padding: 0;
-  margin: 40px 0 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
-}
-
-.contacts a {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding: 24px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--bg-raised);
-  text-decoration: none;
-  color: var(--text);
-  transition: border-color 0.15s;
-}
-
-.contacts a:hover {
-  border-color: var(--signal-dim);
-}
-
-.contacts .label {
-  font-size: 12px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-faint);
-}
-
-.contacts .handle {
-  font-size: 20px;
-  font-weight: 600;
-  overflow-wrap: anywhere;
-}
-
-.contacts .note {
-  color: var(--signal);
-  font-size: 14px;
-  margin-top: 6px;
-}
-
-.logos {
-  list-style: none;
-  padding: 0;
-  margin: 8px 0 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-
-.logos a {
-  display: block;
-  width: 220px;
-}
-
-.logos img {
-  width: 100%;
-  height: auto;
 }
 
 .independence {

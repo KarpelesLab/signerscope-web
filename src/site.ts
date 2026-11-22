@@ -61,6 +61,26 @@ export const explainer = {
   })) as ExplainerVideo[],
 }
 
+// What sponsorship pays for (shown on /support and /sponsor-intro).
+export const fundingNeeds = [
+  {
+    title: 'Prototype runs',
+    body: 'Board fabrication and assembly for each revision, plus the cell parts, until the design is final.',
+  },
+  {
+    title: 'Test equipment',
+    body: 'RF instruments to characterise the on-board sweep and check every unit against a known reference.',
+  },
+  {
+    title: 'Every wallet, every revision',
+    body: 'Confirming a genuine wallet needs its measured profile, so the library needs every wallet and signer on the market, in every hardware revision, plus tampered samples.',
+  },
+  {
+    title: 'Certification',
+    body: 'EMC and radio compliance testing for CE marking in the EU and FCC authorisation in the US, so the device can be sold.',
+  },
+]
+
 export function pageTitle(title?: string) {
   return title ? `${title} · ${site.name}` : `${site.name}: hardware wallet spy implant detector`
 }

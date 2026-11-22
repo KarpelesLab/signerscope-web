@@ -54,12 +54,16 @@ export function headTags(route: RouteLocationNormalizedLoaded) {
     `<meta name="description" content="${esc(description)}" />`,
   ]
   if (route.meta.noindex) {
+    // Kept out of search, but private links still get a preview card when shared.
     tags.push('<meta name="robots" content="noindex" />')
-    return tags.join('\n    ')
+    if (route.name === 'not-found') return tags.join('\n    ')
+  } else {
+    tags.push(
+      `<link rel="canonical" href="${url}" />`,
+      '<meta name="robots" content="index, follow, max-image-preview:large" />',
+    )
   }
   tags.push(
-    `<link rel="canonical" href="${url}" />`,
-    '<meta name="robots" content="index, follow, max-image-preview:large" />',
     `<meta property="og:type" content="website" />`,
     `<meta property="og:site_name" content="${site.name}" />`,
     `<meta property="og:title" content="${esc(title)}" />`,
