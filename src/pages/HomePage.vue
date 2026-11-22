@@ -227,11 +227,12 @@ const timeline = [
   <section id="sponsors" class="section">
     <div class="wrap">
       <p class="eyebrow">Sponsors</p>
-      <h2>Backed by people who care about what’s inside the box.</h2>
+      <h2>Implants are an ecosystem problem.</h2>
       <p class="lede">
-        Turning a proof of concept into a device anyone can buy costs real money: prototype runs, RF
-        test equipment, and certification for the EU and US markets. Our sponsors make that
-        possible.
+        A supply-chain implant threatens every hardware wallet maker and every user, whatever the
+        brand. Turning the proof of concept into a device anyone can buy costs real money:
+        prototype runs, RF test equipment, and certification for the EU and US markets. Our
+        sponsors make that possible, and we are looking for more.
       </p>
       <ul class="sponsors">
         <li v-for="s in sponsors" :key="s.name">
@@ -250,6 +251,9 @@ const timeline = [
           </a>
         </li>
       </ul>
+      <p class="independence">
+        Sponsors fund the work; they have no say in test results or in which devices we test.
+      </p>
     </div>
   </section>
 
@@ -694,6 +698,15 @@ h3 {
   font-weight: 400;
   line-height: 1;
   color: var(--signal);
+}
+
+.independence {
+  margin-top: 24px;
+  color: var(--text-faint);
+  font-size: 14px;
+  border-left: 2px solid var(--signal);
+  padding-left: 14px;
+  max-width: 70ch;
 }
 
 /* Join */
