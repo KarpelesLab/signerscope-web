@@ -5,7 +5,8 @@ export const site = {
   tagline: 'Find the antenna that shouldn’t be there',
   description:
     'SignerScope is an open-hardware RF detector that finds hidden cellular spy implants in hardware wallets. A TEM cell sweep flags the absorption notch of an implanted LTE antenna.',
-  ogImage: '/og.png',
+  // Bump ?v= after changing the image so social networks fetch it again.
+  ogImage: '/og.png?v=2',
   sponsorUrl: 'https://github.com/sponsors/KarpelesLab',
   contacts: [
     { label: 'X', handle: '@MagicalTux', url: 'https://x.com/MagicalTux', note: 'Direct message' },

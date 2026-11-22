@@ -70,6 +70,8 @@ export function headTags(route: RouteLocationNormalizedLoaded) {
     `<meta property="og:description" content="${esc(description)}" />`,
     `<meta property="og:url" content="${url}" />`,
     `<meta property="og:image" content="${image}" />`,
+    `<meta property="og:image:secure_url" content="${image}" />`,
+    '<meta property="og:image:type" content="image/png" />',
     '<meta property="og:image:width" content="1200" />',
     '<meta property="og:image:height" content="630" />',
     `<meta property="og:image:alt" content="${esc(site.name + ': ' + site.tagline)}" />`,
