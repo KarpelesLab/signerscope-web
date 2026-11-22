@@ -14,6 +14,8 @@ export const site = {
     { label: 'Email', handle: 'mark@klb.jp', url: 'mailto:mark@klb.jp?subject=SignerScope', note: 'Write' },
   ],
   themeColor: '#0c1110',
+  company: { name: 'Karpeles Lab Inc.', city: 'Tokyo', country: 'JP', countryName: 'Japan' },
+  founder: { name: 'Mark Karpeles', x: 'https://x.com/MagicalTux' },
 } as const
 
 export interface Sponsor {

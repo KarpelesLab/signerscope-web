@@ -8,9 +8,14 @@ function jsonLd() {
   const org = {
     '@type': 'Organization',
     '@id': `${site.url}/#org`,
-    name: site.name,
-    url: `${site.url}/`,
-    logo: `${site.url}/icon-512.png`,
+    name: site.company.name,
+    url: `${site.url}/about`,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: site.company.city,
+      addressCountry: site.company.country,
+    },
+    founder: { '@type': 'Person', name: site.founder.name, sameAs: [site.founder.x] },
     sponsor: sponsors.map((s) => ({ '@type': 'Organization', name: s.name, url: s.url })),
   }
   const data = {

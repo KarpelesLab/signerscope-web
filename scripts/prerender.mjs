@@ -14,6 +14,7 @@ const pages = [
   { url: '/', file: 'index.html', sitemap: true },
   // GitHub Pages serves support.html at /support (no trailing-slash redirect).
   { url: '/support', file: 'support.html', sitemap: true },
+  { url: '/about', file: 'about.html', sitemap: true },
   { url: '/sponsor-intro', file: 'sponsor-intro.html', sitemap: false },
   { url: '/404', file: '404.html', sitemap: false },
 ]

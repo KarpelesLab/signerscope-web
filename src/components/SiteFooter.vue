@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { site } from '@/site'
 import BrandMark from './BrandMark.vue'
+
+const year = new Date().getFullYear()
 </script>
 
 <template>
@@ -14,7 +16,11 @@ import BrandMark from './BrandMark.vue'
         Proof of concept complete; the SignerScope device is in development. See the limits for
         what a green result does and does not cover.
       </p>
-      <RouterLink to="/support" class="support">Support the project →</RouterLink>
+      <div class="links">
+        <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/support" class="support">Support the project →</RouterLink>
+      </div>
+      <p class="legal">© {{ year }} {{ site.company.name }}, {{ site.company.city }}</p>
     </div>
   </footer>
 </template>
@@ -47,7 +53,23 @@ import BrandMark from './BrandMark.vue'
   max-width: 46ch;
 }
 
-.support {
+.links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.links a {
+  color: var(--text-dim);
+  text-decoration: none;
+}
+
+.legal {
+  flex-basis: 100%;
+  font-size: 13px;
+}
+
+.links .support {
   color: var(--signal);
   font-weight: 600;
   text-decoration: none;

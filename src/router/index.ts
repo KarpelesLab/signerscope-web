@@ -3,6 +3,7 @@ import HomePage from '@/pages/HomePage.vue'
 import NotFoundPage from '@/pages/NotFoundPage.vue'
 import SupportPage from '@/pages/SupportPage.vue'
 import SponsorIntroPage from '@/pages/SponsorIntroPage.vue'
+import AboutPage from '@/pages/AboutPage.vue'
 
 declare module 'vue-router' {
   interface RouteMeta {
@@ -22,6 +23,16 @@ export const routes: RouteRecordRaw[] = [
       title: 'Support the project',
       description:
         'Help bring SignerScope, a detector for spy implants in hardware wallets, from proof of concept to a certified device. Sponsor via GitHub, crypto or directly.',
+    },
+  },
+  {
+    path: '/about',
+    name: 'about',
+    component: AboutPage,
+    meta: {
+      title: 'About',
+      description:
+        'SignerScope is built by Mark Karpeles and Karpeles Lab Inc. in Tokyo: an independent, device-agnostic detector for spy implants in hardware wallets.',
     },
   },
   {
